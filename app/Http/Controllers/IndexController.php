@@ -11,7 +11,8 @@ class IndexController extends Controller
     function index()
     {
         // assegno alla variabile il contenuto della request al database
-         $trainsoftoday = trains::where("orario_di_partenza","2023-01-24")->get();
+         $trainsoftoday = trains::whereDate('orario_di_partenza', today())->get();
+         
 
         return view('index', [
             // la chiave movies contine il contenuto della request
